@@ -1,0 +1,26 @@
+{
+  "test1": {
+    "departingFrom": "New York",
+    "departureAirportCode": "(JFK)",
+    "arrivingTo": "New Orleans",
+    "arrvingAirportCode": "(MSY)",
+    "date": "Wed Sep 16 2026",
+    "stops": "1 stop"
+  },
+  "test2": {
+    "departingFrom": "Syracuse",
+    "departureAirportCode": "(SYR)",
+    "arrivingTo": "Boston",
+    "arrvingAirportCode": "(BOS)",
+    "date": "Mon Aug 31 2026",
+    "stops": "2 stops"
+  },
+    "test3": {
+    "departingFrom": "tor",
+    "departureAirportCode": "(YYZ)",
+    "arrivingTo": "atl",
+    "arrvingAirportCode": "(ATL)",
+    "date": "Sun Sep 20 2026",
+    "stops": "Non-stop"
+  }
+}

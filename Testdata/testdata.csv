@@ -1,0 +1,4 @@
+departingFrom,departureAirportCode,arrivingTo,arrvingAirportCode,date,stops
+New York,(JFK),New Orleans,(MSY),Wed Sep 16 2026,1 stop
+Syracuse,(SYR),Boston,(BOS),Mon Aug 31 2026,2 stops
+tor,(YYZ),atl,(ATL),Sun Sep 20 2026,Non-stop

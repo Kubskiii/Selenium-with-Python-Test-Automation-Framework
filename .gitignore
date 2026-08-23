@@ -1,0 +1,4 @@
+.idea/
+.pytetst_cache/
+*.log
+*__pycache__
