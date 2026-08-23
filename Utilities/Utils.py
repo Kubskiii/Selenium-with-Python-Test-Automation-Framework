@@ -61,5 +61,28 @@ class Utils(softest.TestCase):
 
         return dataList
 
+    def ConvertTextToNumber(text):
+
+        ConvertedText = []
+
+        for element in text:
+            var1 = int(element.text.replace("₹", "").replace(",", ""))
+            ConvertedText.append(var1)
+
+        return ConvertedText
+
+    def SortLowToHigh(list):
+        return sorted(list)
+
+    def AssertTwoLists(self,list1,list2):
+
+        for originalPrice,sortedPrice in zip(list1,list2):
+            self.soft_assert(self.assertEqual,originalPrice,sortedPrice)
+            if originalPrice == sortedPrice:
+                print(f"Assert Pass: Expected Price {sortedPrice}, Actual Price {originalPrice}")
+            else:
+                print(f"Assert Fail: Expected Price {sortedPrice}, Actual Price {originalPrice}")
+
+
 
 

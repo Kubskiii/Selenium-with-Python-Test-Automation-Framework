@@ -5,13 +5,14 @@ from selenium import webdriver
 @pytest.fixture(scope="function")
 def setup(request,browser,url):
 
-    if browser == "chrome":
-        driver = webdriver.Chrome()
-    elif browser == "firefox":
-        driver = webdriver.Firefox()
-    elif browser == "edge":
-        driver = webdriver.Edge()
-
+    # if browser == "chrome":
+    #     driver = webdriver.Chrome()
+    # elif browser == "firefox":
+    #     driver = webdriver.Firefox()
+    # elif browser == "edge":
+    #     driver = webdriver.Edge()
+    driver = webdriver.Chrome()
+    url = 'https://www.cleartrip.com/'
     driver.maximize_window()
     driver.get(url)
 
