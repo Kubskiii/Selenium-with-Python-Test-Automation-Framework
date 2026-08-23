@@ -9,7 +9,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 class BaseDriver:
     def __init__(self,driver):
         self.driver = driver
-    # "//div[contains(@class, 'iqHrEd')]"
+
     def scroll_container_to_bottom(self,locator, pause_time=1.5, max_scrolls=100):
         container = self.driver.find_element(By.XPATH, locator)
         last_height = self.driver.execute_script("return arguments[0].scrollHeight;", container)

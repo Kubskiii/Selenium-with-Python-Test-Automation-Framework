@@ -20,7 +20,7 @@ class TestSearchAndVerifyFilter(softest.TestCase):
 
     @data(*Utils.ReadDataFromCSV("C:\\Python Selenium\\TestFramework\\Testdata\\testdata.csv"))
     @unpack
-    def test_search_flights_1_stop(self,departingFrom,departureAirportCode, arrivingTo,arrvingAirportCode,date,stops):
+    def TestSearchFlights(self, departingFrom, departureAirportCode, arrivingTo, arrvingAirportCode, date, stops):
         # Launch Website
 
         #Searches Flights

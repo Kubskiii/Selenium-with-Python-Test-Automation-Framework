@@ -42,7 +42,6 @@ class LaunchPage(BaseDriver):
         return self.driver.find_elements(By.XPATH, self.ALL_DATES)
 
     def getSearchButton(self):
-        # return self.driver.find_element(By.XPATH, self.SEARCH_BUTTON)
         return self.WaitForPresenceOfElement(By.XPATH, self.SEARCH_BUTTON)
 
     def getPopUpButtpon(self):

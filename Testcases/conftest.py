@@ -32,5 +32,3 @@ def url(request):
     return request.config.getoption("--url")
 
 
-# https://www.cleartrip.com/
-# python -m pytest -v --browser chrome --url https://www.cleartrip.com/ --html=Reports/report.html --self-contained-html

@@ -19,18 +19,17 @@ class Utils(softest.TestCase):
         self.assert_all()
 
     def CustomLogger(logLevel=logging.DEBUG):
-        # Set class/method name from where it is called
         loggerName = inspect.stack()[1][3]
-        # Create Logger
+
         logger = logging.getLogger(loggerName)
         logger.setLevel(logLevel)
-        # Create Console handler or file handler and set the log level
+
         fileHandler = logging.FileHandler("automation.log", mode='a')
-        # create formatter - how you want logs to be formatted
+
         formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(name)s - %(message)s', datefmt='%d/%b/%y %H:%M:%S %p')
-        # add formatter to console or file handler
+
         fileHandler.setFormatter(formatter)
-        # add console handler to loger
+
         logger.addHandler(fileHandler)
         return logger
 
@@ -51,15 +50,12 @@ class Utils(softest.TestCase):
         return dataList
 
     def ReadDataFromCSV(fileName):
-        #create list
         dataList = []
-        #Open File
+
         csvData = open(fileName,"r")
-        #Create CSV Reader
         reader = csv.reader(csvData)
-        #skip header
+
         next(reader)
-        # Add CSV rows to list
         for row in reader:
             dataList.append(row)
 
