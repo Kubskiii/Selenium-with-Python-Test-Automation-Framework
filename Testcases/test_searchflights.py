@@ -20,21 +20,16 @@ class TestSearchAndVerifyFilter(softest.TestCase):
 
     @data(*Utils.ReadDataFromCSV("C:\\Python Selenium\\TestFramework\\Testdata\\testdata.csv"))
     @unpack
-    def TestSearchFlights(self, departingFrom, departureAirportCode, arrivingTo, arrvingAirportCode, date, stops):
+    def test_search_flights(self, departingFrom, departureAirportCode, arrivingTo, arrvingAirportCode, date, stops):
         # Launch Website
-
         #Searches Flights
         sfp = self.lp.searchFlights(departingFrom,departureAirportCode, arrivingTo,arrvingAirportCode,date)
-
         # Select non stop filter
         sfp.filter_flights_by_stop(stops)
-
         # Handle infinite Scroll
         sfp.scroll_to_bottom()
-
         # Get all of the flights
         allStops = sfp.getAllFlights()
-
         #Verify that all flights are nonstop
         self.log.info(len(allStops))
         self.utility.AssertListItems(allStops,stops)
