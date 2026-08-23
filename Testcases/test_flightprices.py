@@ -2,13 +2,14 @@ import time
 
 import pytest
 import softest
-from ddt import ddt
+from ddt import ddt, data, unpack
 
 from Pages.ClearTrip_Launch_Page import LaunchPage
 from Utilities.Utils import Utils
 
 
 @pytest.mark.usefixtures("setup")
+@ddt
 class TestFlightPrices(softest.TestCase):
 
     @pytest.fixture(autouse=True)
@@ -16,23 +17,23 @@ class TestFlightPrices(softest.TestCase):
         self.lp = LaunchPage(self.driver)
         self.utility = Utils()
 
-
-    def test_flightprices(self):
-    #     search flight (values hardcoded, will be parameterized later)
-        sfrp = self.lp.searchFlights("New York","(JFK)","New Orleans","(MSY)","Wed Sep 16 2026")
-    #     sort by low to high
-        flights = sfrp.GetAllFlightsLowToHigh("1 stop")
+    @data(*Utils.ReadDataFromCSV("C:\\Python Selenium\\TestFramework\\Testdata\\testdata.csv"))
+    @unpack
+    def test_flightprices(self, departingFrom, departureAirportCode, arrivingTo, arrvingAirportCode, date, stops):
+    #   search flight (values hardcoded, will be parameterized later)
+        sfrp = self.lp.searchFlights(departingFrom,departureAirportCode, arrivingTo,arrvingAirportCode,date)
+    #   sort by low to high
+        flights = sfrp.GetAllFlightsLowToHigh(stops)
 
         prices = Utils.ConvertTextToNumber(flights)
-
         sortedPrices = Utils.SortLowToHigh(prices)
-
+    #   assert that prices displayed are in order from low to high
         self.utility.AssertTwoLists(prices,sortedPrices)
 
 
 
 
-    #     assert that prices displayed are in order from low to high
 
 
-# python -m pytest Testcases\test_flightprices.py -v -s --browser chrome --url https://www.cleartrip.com/
+
+
